@@ -3,6 +3,8 @@
 <%= render "cart" %>
 
 <%= form_for(@order) do |f| %>
+  <div data-controller="payment" data-payment-token-value="<%= @token %>"></div>
+
   <%= f.text_field :receiver, class: "input", placeholder: "收件人姓名" %>
   <%= f.text_field :tel, class: "input", placeholder: "聯絡電話" %>
   <%= f.text_field :address, class: "input", placeholder: "收件地址" %>

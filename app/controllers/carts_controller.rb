@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  include BraintreeUtils
   before_action :authenticate_user!
 
   def show
@@ -11,5 +12,6 @@ class CartsController < ApplicationController
 
   def checkout
     @order = Order.new
+    @token = gateway.client_token.generate
   end
 end
