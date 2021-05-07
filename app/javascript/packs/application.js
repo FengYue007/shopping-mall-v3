@@ -9,3 +9,5 @@ ActiveStorage.start()
 
 import 'scripts'
 import 'styles'
+
+import "controllers"
