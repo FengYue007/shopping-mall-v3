@@ -1,0 +1,18 @@
+ <ul class="my-2">
+  <% current_cart.line_items.each do |item| %>
+    <li class="cart-item-list">
+      <div class="w-36">
+        <%= product_img(item.product) %>
+      </div>
+      <div>
+        <%= item.product.title %>
+      </div>
+      <div>
+        NTD <%= number_to_currency item.product.price %>
+      </div>
+      <div>
+        <%= item.quantity %>
+      </div>
+    </li>
+  <% end %>
+  </ul>

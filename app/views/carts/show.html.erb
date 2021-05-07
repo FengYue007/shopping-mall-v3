@@ -5,28 +5,11 @@
     目前空空的，回<%= link_to "上一頁", root_path, class: "underline" %>挑一些東西吧！
   </p>
 <% else %>
-  <ul class="my-2">
-  <% current_cart.line_items.each do |item| %>
-    <li class="cart-item-list">
-      <div class="w-36">
-        <%= product_img(item.product) %>
-      </div>
-      <div>
-        <%= item.product.title %>
-      </div>
-      <div>
-        NTD <%= number_to_currency item.product.price %>
-      </div>
-      <div>
-        <%= item.quantity %>
-      </div>
-    </li>
-  <% end %>
-  </ul>
+  <%= render "cart" %>
 <% end %>
 
 <section class="flex mt-4">
 <%= link_to "商品列表", root_path, class: "bg-blue-500 px-4 py-2 text-white text-lg" %>
 <%= link_to "清空購物車", cart_path, method: :delete, data: {confirm: "確認清空購物車?!"}, class: "bg-green-500 px-4 py-2 text-white text-lg" unless current_cart.empty? %>
-<%= link_to "結帳！", "#", class: "bg-red-500 px-4 py-2 text-white text-lg" unless current_cart.empty? %>
+<%= link_to "結帳！", checkout_cart_path, class: "bg-red-500 px-4 py-2 text-white text-lg" unless current_cart.empty? %>
 </section>

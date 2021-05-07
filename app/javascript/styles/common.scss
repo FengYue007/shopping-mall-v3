@@ -51,3 +51,13 @@ nav.navbar {
     }
   }
 }
+
+form {
+  .input {
+    @apply block w-full my-2 text-xl px-3 py-2 border border-gray-500 rounded;
+  }
+
+  .btn-action {
+    @apply px-2 py-1 rounded text-white text-lg bg-green-500;
+  }
+}

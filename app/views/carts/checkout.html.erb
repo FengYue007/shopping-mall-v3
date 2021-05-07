@@ -1,0 +1,10 @@
+<h1 class="h1">結帳</h1>
+
+<%= render "cart" %>
+
+<%= form_for(@order) do |f| %>
+  <%= f.text_field :receiver, class: "input", placeholder: "收件人姓名" %>
+  <%= f.text_field :tel, class: "input", placeholder: "聯絡電話" %>
+  <%= f.text_field :address, class: "input", placeholder: "收件地址" %>
+  <%= f.submit "送出訂單", class: "btn-action" %>
+<% end %>
