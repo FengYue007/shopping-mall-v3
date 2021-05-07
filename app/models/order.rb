@@ -1,8 +1,11 @@
 class Order < ApplicationRecord
   include AASM
   belongs_to :user
+  has_many :order_items
 
-  aasm column: 'status' do
+  before_create :create_serial
+
+  aasm column: 'status', no_direct_assignment: true do
     state :pending, initial: true
     state :paid, :delivered, :cancelled, :refunded
 
@@ -26,7 +29,14 @@ class Order < ApplicationRecord
     event :refund do
       transitions from: [:cancelled, :paid, :delivered], to: :refunded
     end
-
   end
 
+  private
+    def create_serial
+      self.serial = serial_generator(id) # dont do that
+    end
+
+    def serial_generator(id)
+      Time.now.strftime("%Y%m%d#{id.to_s.rjust(8, "0")}")
+    end
 end
