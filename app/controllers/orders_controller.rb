@@ -17,9 +17,8 @@ class OrdersController < ApplicationController
 
     if order.save
       # 刷卡（交易）
-
       result = gateway.transaction.sale(
-        amount: "10.00",
+        amount: current_cart.total_price,
         payment_method_nonce: params[:nonce],
         options: {
           submit_for_settlement: true
