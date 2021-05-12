@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items
 
+  validates :serial, uniqueness: true
   before_create :create_serial
 
   aasm column: 'status', no_direct_assignment: true do
@@ -32,11 +33,15 @@ class Order < ApplicationRecord
   end
 
   private
+    def random_serial(n)
+      [*'A'..'Z', *'0'..'9'].sample(n).join
+    end
+
     def create_serial
-      self.serial = serial_generator(id) # dont do that
+      self.serial = serial_generator(random_serial(8)) # dont do that
     end
 
     def serial_generator(id)
-      Time.now.strftime("%Y%m%d#{id.to_s.rjust(8, "0")}")
+      Time.now.strftime("%Y%m%d#{id}")
     end
 end
