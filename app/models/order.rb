@@ -1,6 +1,9 @@
 class Order < ApplicationRecord
   include AASM
   belongs_to :user
+  has_many :order_items
+
+  before_create :create_serial
 
 aasm cloumn: 'status', no_direct_assignment: true do
     state :pending, initial: true
@@ -27,5 +30,15 @@ aasm cloumn: 'status', no_direct_assignment: true do
     end
   end
 
-end
+
+  private
+
+  def create_serial
+    self.serial = serial_generator(id) # don't do that
+  end
+
+  def serial_generator(id)
+    Time.now.strftime("%Y%m%d#{id.to_s.rjust(8, "0"}")
+  end
+
 end
