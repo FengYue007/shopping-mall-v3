@@ -13,8 +13,9 @@ aasm cloumn: 'status', no_direct_assignment: true do
       transitions from: :pending, to: :paid
 
       after_commit do
-        puts "發送簡訊!"
-        # 簡訊服務
+          puts "發送簡訊!"
+          # 簡訊服務
+      end
     end
 
     event :deliver do
@@ -38,7 +39,7 @@ aasm cloumn: 'status', no_direct_assignment: true do
   end
 
   def serial_generator(id)
-    Time.now.strftime("%Y%m%d#{id.to_s.rjust(8, "0"}")
+    Time.now.strftime("%Y%m%d#{id.to_s.rjust(8, "0")}")
   end
 
 end

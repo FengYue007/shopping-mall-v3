@@ -12,6 +12,6 @@ class CartsController < ApplicationController
 
   def checkout
     @order = Order.new
-    @token = gateway.client_token.generate
+    # @token = gateway.client_token.generate
   end
 end
