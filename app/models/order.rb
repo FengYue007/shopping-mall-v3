@@ -2,7 +2,7 @@ class Order < ApplicationRecord
   include AASM
   belongs_to :user
 
-aasm cloumn: 'status' do
+aasm cloumn: 'status', no_direct_assignment: true do
     state :pending, initial: true
     state :paid, :delivered, :cancelled, :refunded
 
