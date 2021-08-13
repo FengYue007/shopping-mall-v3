@@ -2,9 +2,9 @@ module BraintreeUtils
   def gateway
     Braintree::Gateway.new(
       environment: :sandbox,
-      merchant_id: ENV["braintree_merchant_id"],
-      public_key: ENV["braintree_public_key"],
-      private_key: ENV["braintree_private_key"]
+      merchant_id: "ytcktzdx47s7t7xg",
+      public_key: "vhncwx4r7rx9ys32",
+      private_key: "7c05673f25e37aa62a2b569fc5d759ec"
     )
   end
 end

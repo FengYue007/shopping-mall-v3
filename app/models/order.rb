@@ -5,7 +5,7 @@ class Order < ApplicationRecord
 
   before_create :create_serial
 
-aasm cloumn: 'status', no_direct_assignment: true do
+  aasm column: 'status', no_direct_assignment: true do
     state :pending, initial: true
     state :paid, :delivered, :cancelled, :refunded
 

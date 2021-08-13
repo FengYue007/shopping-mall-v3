@@ -38,5 +38,6 @@ export default class extends Controller {
 
   disconnect() {
     this.dropInInstance.teardown()
+    // console.log("bye", this.dropInInstance);
   }
 }

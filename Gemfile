@@ -22,7 +22,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "devise", "~> 4.8"
 gem "kaminari", "~> 1.2"
 gem "aasm", "~> 5.2"
-gem "braintree", "~> 3.4.0"
+gem "braintree", "~> 4.3.0"
 gem "figaro", "~> 1.2"
 
 group :development, :test do
