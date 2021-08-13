@@ -1659,7 +1659,7 @@ braintree-web-drop-in@^1.28.0:
     braintree-web "3.80.0"
     promise-polyfill "8.2.0"
 
-braintree-web@3.80.0:
+braintree-web@3.80.0, braintree-web@^3.80.0:
   version "3.80.0"
   resolved "https://registry.yarnpkg.com/braintree-web/-/braintree-web-3.80.0.tgz#2d754948dcedf04d2f5629abcde8f9f2d53dddbd"
   integrity sha512-XVWHPjdur4HPOCtfNMsiDeU7ZjW3/jO43y4I2aMmYtS/fDk7LkKBWZjCCsbTgxUq5JxwtAQdFtNGpdYWuDWkkQ==
